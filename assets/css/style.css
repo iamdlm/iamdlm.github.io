@@ -1,0 +1,120 @@
+@import './icomoon.css';
+
+@font-face {
+	font-family: 'Droid serif';
+	src: url(../fonts/DroidSerif.ttf);
+}
+
+@font-face {
+	font-family: 'Droid serif';
+	font-style: italic;
+	src: url(../fonts/DroidSerif-Italic.ttf);
+}
+
+html,
+body {
+	overscroll-behavior: none;
+}
+
+body {
+	background-color: #151515;
+	font-family: 'Droid Serif', serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	margin: 0px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+}
+
+a {
+	color: #fff;
+}
+
+a:hover {
+	color: #34495e;
+}
+
+a.primavera:hover {
+	color: #0054e6;
+}
+
+a.twitter:hover {
+	color: #1ca2f3;
+}
+
+a.producthunt:hover {
+	color: #da542e;
+}
+
+a.github:hover {
+	color: #199cdf;
+}
+
+a.telegram:hover {
+	color: #199cdf;
+}
+
+a.linkedin:hover {
+	color: #0178b5;
+}
+
+a.jsonbox:hover {
+	color: #BE8549;
+}
+
+a.talk:hover {
+	color: #6669C4;
+}
+
+a.unapp:hover {
+	color: #333333;
+}
+
+a.looptap:hover {
+	color: #ED5566;
+}
+
+::-webkit-scrollbar {
+	width: 1px;
+}
+
+::-webkit-scrollbar-track {
+	background: none;
+	opacity: 0;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #fff;
+	opacity: 0;
+	border-radius: 0.5rem;
+}
+
+#wrap {
+	width: 100%;
+	max-width: 720px;
+	margin: auto;
+	position: relative;
+	padding: 0px 1rem;
+	box-sizing: border-box;
+}
+
+#content {
+	padding: calc(100px + 1rem) 1rem 2rem 2rem;
+	color: #949495;
+	font-size: 1.8rem;
+	line-height: 1.6;
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+
+#content .links a {
+	height: 32px;
+	width: 32px;
+	margin-right: 1rem;
+	text-decoration: none;
+}
