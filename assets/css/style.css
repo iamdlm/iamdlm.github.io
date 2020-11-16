@@ -17,7 +17,7 @@ body {
 }
 
 body {
-	background-color: #151515;
+	background-color: #0B0C0D;
 	font-family: 'Droid Serif', serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -36,11 +36,7 @@ a {
 }
 
 a:hover {
-	color: #34495e;
-}
-
-a.primavera:hover {
-	color: #0054e6;
+	color: #0F4BF1;
 }
 
 a.twitter:hover {
@@ -61,22 +57,6 @@ a.telegram:hover {
 
 a.linkedin:hover {
 	color: #0178b5;
-}
-
-a.jsonbox:hover {
-	color: #BE8549;
-}
-
-a.talk:hover {
-	color: #6669C4;
-}
-
-a.unapp:hover {
-	color: #333333;
-}
-
-a.looptap:hover {
-	color: #ED5566;
 }
 
 ::-webkit-scrollbar {
@@ -105,7 +85,7 @@ a.looptap:hover {
 
 #content {
 	padding: calc(100px + 1rem) 1rem 2rem 2rem;
-	color: #949495;
+	color: #656D78;
 	font-size: 1.8rem;
 	line-height: 1.6;
 	opacity: 1;
