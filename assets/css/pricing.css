@@ -1,38 +1,38 @@
 @charset "utf-8";
 
 #wrap {
-	max-width: 840px;
+    max-width: 840px;
 }
 
-#wrap > #container {
-	padding: calc(100px + 1rem) 1rem 2rem 2rem;
+#wrap>#container {
+    padding: calc(100px + 1rem) 1rem 2rem 2rem;
 }
 
 .pricingTable {
-	background-color: #fff;
+    background-color: #fff;
     border: 1px solid #dbdbdb;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     margin: 0 -15px;
     text-align: center;
     transition: all 0.4s ease-in-out 0s;
 }
 
-.pricingTable:hover{
+.pricingTable:hover {
     border: 2px solid #e46367;
     margin-top: -30px;
 }
 
-.pricingTable .pricingTable-header{
+.pricingTable .pricingTable-header {
     padding: 30px 10px;
 }
 
-.pricingTable .heading{
+.pricingTable .heading {
     display: block;
     color: #000;
     font-weight: 900;
     text-transform: uppercase;
-    font-size:21px;
+    font-size: 21px;
 }
 
 .pricingTable .pricing-plans {
@@ -42,7 +42,7 @@
     font-weight: 900;
 }
 
-.pricingTable .price-value{
+.pricingTable .price-value {
     color: #474747;
     display: block;
     font-size: 25px;
@@ -51,11 +51,11 @@
     padding: 0 10px;
 }
 
-.pricingTable .price-value span{
+.pricingTable .price-value span {
     font-size: 50px;
 }
 
-.pricingTable .subtitle{
+.pricingTable .subtitle {
     color: #82919f;
     display: block;
     font-size: 15px;
@@ -63,13 +63,13 @@
     font-weight: 100;
 }
 
-.pricingTable .pricingContent ul{
+.pricingTable .pricingContent ul {
     padding: 0;
     list-style: none;
     margin-bottom: 0;
 }
 
-.pricingTable .pricingContent ul li{
+.pricingTable .pricingContent ul li {
     padding: 20px 0;
 }
 
@@ -77,47 +77,40 @@
     background-color: #fff;
 }
 
-.pricingTable .pricingContent ul li:last-child{
+.pricingTable .pricingContent ul li:last-child {
     border-bottom: 1px solid #dbdbdb;
 }
 
-.pricingTable .pricingTable-sign-up{
+.pricingTable .pricingTable-sign-up {
     padding: 25px 0;
 }
 
-.pricingTable .btn-block{
+.pricingTable .btn-block {
     width: 50%;
     margin: 0 auto;
     background: #e46367;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     padding: 10px 5px;
-    color:#fff;
+    color: #fff;
     text-transform: capitalize;
     border-radius: 5px;
-    transition:0.3s ease;
+    transition: 0.3s ease;
 }
 
-.pricingTable .btn-block:after{
-    content: "\f090";
-    font-family: 'FontAwesome';
-    padding-left: 10px;
-    font-size: 15px;
-}
-
-.pricingTable:hover .btn-block{
-    background:#fff;
+.pricingTable:hover .btn-block {
+    background: #fff;
     color: #e46367;
-    border:1px solid #e46367;
+    border: 1px solid #e46367;
 }
 
-@media screen and (max-width:990px){
-    .pricingTable{
+@media screen and (max-width:990px) {
+    .pricingTable {
         margin-bottom: 30px;
     }
 }
 
-@media screen and (max-width:767px){
-    .pricingTable{
-       margin: 0 0 30px 0;
+@media screen and (max-width:767px) {
+    .pricingTable {
+        margin: 0 0 30px 0;
     }
 }
