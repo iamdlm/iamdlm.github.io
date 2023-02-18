@@ -1,0 +1,56 @@
+baseURL = 'https://iamdlm.github.io/'
+languageCode = 'en-us'
+title = 'Diogo Lewis Mesquita - Full Stack Engineer in Braga'
+theme = 'devise'
+relativeURLs = true
+enableEmoji = true
+googleAnalytics = ''
+enableRobotsTXT = true
+copyright = '&copy; Copyright {year}, Diogo Mesquita'
+
+# Main menu items
+[menu]
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    title = 'About'
+    url = '/about/'
+    weight = -110
+  [[menu.main]]
+    identifier = 'projects'
+    name = 'Projects'
+    title = 'Projects'
+    url = '/projects/'
+    weight = -100
+  [[menu.main]]
+    identifier = 'blog'
+    name = 'Blog'
+    title = 'Blog'
+    url = '/blog/'
+    weight = -90
+
+# Configuration Features
+[params]
+  description = 'Diogo Lewis Mesquita Full Stack Engineer in Braga'      # Your meta description of the site
+  header_title = 'Diogo Lewis Mesquita'                 # Your header title
+  header_subtitle = 'Software Engineer | Cegid | Porto, 🇵🇹' # Your header subtitle
+  home_image = '/avatar.jpg'          # Path to header image starting from the static directory
+  recent_posts = 5                           # Max amount of recent posts to show
+  mainSections = ['about', 'projects', 'blog']   # Main sections to include in recent posts
+  [params.style]                             # CSS style overrides
+    backgroundColor = '#151515'
+    homeImageBorderColor = '#ffffff'
+    fontFamilyBase = 'Helvetica Neue'        # First-choice font
+    fontColor = '#6c757d'
+  [[params.social]]
+    fa_icon = 'fab fa-github fa-1x'          # Font Awesome icon class
+    href = 'https://github.com/iamdlm'      # Link to associate with icon (http://, https://, mailto:)
+  [[params.social]]
+    fa_icon = 'fab fa-linkedin-in fa-1x'
+    href = 'https://www.linkedin.com/in/diogoluismesquita/'
+  [[params.social]]
+    fa_icon = 'fab fa-twitter fa-1x'
+    href = 'https://twitter.com/iamdlm'
+  [[params.social]]
+    fa_icon = 'fab fa-telegram fa-1x'
+    href = 'https://t.me/iamdlm'
