@@ -52,5 +52,5 @@ copyright = '&copy; Copyright {year}, Diogo Mesquita'
     fa_icon = 'fab fa-twitter fa-1x'
     href = 'https://twitter.com/iamdlm'
   [[params.social]]
-    fa_icon = 'fab fa-telegram fa-1x'
-    href = 'https://t.me/iamdlm'
+    fa_icon = ''
+    href = ''
