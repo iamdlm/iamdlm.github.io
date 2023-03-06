@@ -1,1 +1,1 @@
-#home-image{border:none}a{color:#fff;text-decoration:underline}a:hover{color:#fff;text-decoration:underline}
+.container{margin:30px 0}h1,h2,h3,h4,h5,h6{margin-bottom:15px}a{color:#fff;text-decoration:underline}a:hover{color:#fff;text-decoration:underline}#home-image{border:none}
