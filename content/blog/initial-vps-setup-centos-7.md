@@ -18,9 +18,9 @@ Once you have your VPS credentials, the first thing you will need to do is log i
 
 Once you are logged in, the first thing you should do is update your system packages. To do this, run the following command:
 
-```
+{{< highlight bash >}}
 sudo yum update
-```
+{{< /highlight >}}
 
 This command will update all of the packages on your system to their latest versions.
 
@@ -30,9 +30,9 @@ By default, the root user is the only user on the system. It is not recommended 
 
 To create a new user, run the following command:
 
-```
+{{< highlight bash >}}
 sudo adduser username
-```
+{{< /highlight >}}
 
 Replace "username" with the name you want to give your new user. You will then be prompted to create a password and enter some basic information about the user.
 
@@ -40,9 +40,9 @@ Replace "username" with the name you want to give your new user. You will then b
 
 By default, the new user does not have sudo (superuser) access. Sudo access is required to perform administrative tasks on the system. To grant sudo access, run the following command:
 
-```
+{{< highlight bash >}}
 sudo usermod -aG wheel username
-```
+{{< /highlight >}}
 
 This command adds the new user to the "wheel" group, which has sudo access.
 
@@ -52,19 +52,19 @@ Public key authentication is a more secure way to log in to your VPS compared to
 
 To generate a key pair, run the following command on your local machine:
 
-```
+{{< highlight bash >}}
 ssh-keygen
-```
+{{< /highlight >}}
 
 You will be prompted to enter a filename for the key pair and a passphrase to protect the private key. Once you have generated the key pair, you need to add the public key to your VPS.
 
 Log in to your VPS with your non-root user and run the following command:
 
-```
+{{< highlight bash >}}
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 nano ~/.ssh/authorized_keys
-```
+{{< /highlight >}}
 
 This creates a new directory for your ssh keys, sets the permissions, and opens the authorized_keys file in the nano text editor.
 
@@ -72,9 +72,9 @@ Copy the public key from your local machine (it should be in the file you specif
 
 Finally, set the permissions on the authorized_keys file by running the following command:
 
-```
+{{< highlight bash >}}
 chmod 600 ~/.ssh/authorized_keys
-```
+{{< /highlight >}}
 
 From now on, you will be able to log in to your VPS with public key authentication instead of a password.
 
@@ -82,17 +82,17 @@ From now on, you will be able to log in to your VPS with public key authenticati
 
 To improve the security of your VPS, it is recommended to disable direct root login. To do this, edit the sshd configuration file by running the following command:
 
-```
+{{< highlight bash >}}
 sudo nano /etc/ssh/sshd_config
-```
+{{< /highlight >}}
 
 Find the line that says "PermitRootLogin yes" and change it to "PermitRootLogin no". Save and exit the file.
 
 Restart the sshd service by running the following command:
 
-```
+{{< highlight bash >}}
 sudo systemctl restart sshd
-```
+{{< /highlight >}}
 
 From now on, you will need to log in with your non-root user and then use sudo to perform administrative tasks.
 
@@ -100,50 +100,50 @@ From now on, you will need to log in with your non-root user and then use sudo t
 
 Finally, it's important to configure the firewall on your VPS to protect it from unauthorized access. CentOS 7 comes with a default firewall called firewalld, but we'll be using the older and more established iptables instead. Before we install and configure iptables, we need to disable firewalld:
 
-```
+{{< highlight bash >}}
 sudo systemctl stop firewalld
 sudo systemctl mask firewalld
-```
+{{< /highlight >}}
 
 This stops the firewalld service and masks it, which prevents it from starting automatically on boot.
 
 Next, we can install and configure iptables:
 
-```
+{{< highlight bash >}}
 sudo yum install iptables-services
 sudo systemctl enable iptables
 sudo systemctl start iptables
-```
+{{< /highlight >}}
 
 This installs the iptables services package, enables the iptables service to start on boot, and starts the service.
 
 Now we can configure the iptables rules. For example, to allow incoming SSH traffic, we need to add a rule to allow traffic on port 22:
 
-```
+{{< highlight bash >}}
 sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-```
+{{< /highlight >}}
 
 This adds a rule to the INPUT chain to accept TCP traffic on port 22 (SSH).
 
 To allow incoming HTTP traffic, we can add a rule to allow traffic on port 80:
 
-```
+{{< highlight bash >}}
 sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-```
+{{< /highlight >}}
 
 To allow incoming HTTPS traffic, we can add a rule to allow traffic on port 443:
 
-```
+{{< highlight bash >}}
 sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-```
+{{< /highlight >}}
 
 You can add additional rules as needed, depending on the services you'll be running on your VPS.
 
 To make sure these rules are saved and applied after a reboot, we need to save them to the iptables configuration file:
 
-```
+{{< highlight bash >}}
 sudo service iptables save
-```
+{{< /highlight >}}
 
 This saves the current iptables rules to the configuration file.
 
@@ -153,23 +153,23 @@ Another important security measure you can take to protect your VPS is to instal
 
 To install fail2ban, run the following command:
 
-```
+{{< highlight bash >}}
 sudo yum install epel-release fail2ban
-```
+{{< /highlight >}}
 
 Once fail2ban is installed, you need to create a copy of the default configuration file:
 
-```
+{{< highlight bash >}}
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-```
+{{< /highlight >}}
 
 This creates a local copy of the configuration file that you can customize without affecting the default settings.
 
 Next, open the jail.local file in your preferred text editor:
 
-```
+{{< highlight bash >}}
 sudo nano /etc/fail2ban/jail.local
-```
+{{< /highlight >}}
 
 This file contains all the default settings for fail2ban, as well as any custom settings you add.
 
@@ -179,10 +179,10 @@ Once you've made any necessary changes to the configuration file, save and close
 
 Finally, start the fail2ban service and enable it to start on boot:
 
-```
+{{< highlight bash >}}
 sudo systemctl start fail2ban
 sudo systemctl enable fail2ban
-```
+{{< /highlight >}}
 
 fail2ban is now installed and configured on your VPS to help prevent brute-force attacks and enhance your overall security.
 
