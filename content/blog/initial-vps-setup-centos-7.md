@@ -6,7 +6,9 @@ draft: false
 # Initial VPS setup with Linux CentOS 7
 Virtual Private Server (VPS) have become increasingly popular over the years due to their flexibility and affordability. They allow you to have a dedicated server environment without the need for expensive hardware.
 
-Since a couple of years ago that I had a desire to migrate my web apps from personal projects to a Virtual Private Server (VPS), not only because of the challenge but mostly because I would be in total control: software versions and updates, tools, etc.
+For a while now, I've been wanting to migrate my web apps from personal projects to a Virtual Private Server (VPS). This desire stems not only from the challenge it presents, but also because it would give me complete control over software versions, updates, tools, and more.
+
+Furthermore, moving to a VPS would allow me to achieve a personal goal for the year: setting up a complete CI/CD pipeline.
 
 In this blog post, we will walk you through the initial setup of a VPS with Linux CentOS 7.
 
