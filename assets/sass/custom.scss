@@ -3,6 +3,10 @@ body {
     font-size: 1rem;
 }
 
+#content {
+    max-width: 720px;
+}
+
 .container {
     margin: 30px 0 30px 0;
 }
@@ -24,7 +28,7 @@ h4 {
 }
 
 ul>li {
-    margin: 10px 0 10px 0;
+    margin: 5px 0;
 }
 
 ul#nav-links>li,
