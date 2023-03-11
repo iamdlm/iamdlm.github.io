@@ -5,6 +5,7 @@ body {
 
 #content {
     max-width: 720px;
+    min-height: calc(100vh - 144px);
 }
 
 .container {
