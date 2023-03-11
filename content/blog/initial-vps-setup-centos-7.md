@@ -10,7 +10,7 @@ For a while now, I've been wanting to migrate my web apps from personal projects
 
 Furthermore, moving to a VPS would allow me to achieve a [personal goal for the year](2023-year-goals.md): setting up a complete CI/CD pipeline.
 
-In this blog post, we will walk you through the initial setup of a VPS with Linux CentOS 7.
+In this blog post, I''l will walk you through the steps I took for the initial setup of my VPS with Linux CentOS 7.
 
 ## Step 1: Logging in and Updating Packages
 
