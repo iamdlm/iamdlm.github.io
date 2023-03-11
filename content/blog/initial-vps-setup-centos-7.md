@@ -8,7 +8,7 @@ Virtual Private Server (VPS) have become increasingly popular over the years due
 
 For a while now, I've been wanting to migrate my web apps from personal projects to a Virtual Private Server (VPS). This desire stems not only from the challenge it presents, but also because it would give me complete control over software versions, updates, tools, and more.
 
-Furthermore, moving to a VPS would allow me to achieve a personal goal for the year: setting up a complete CI/CD pipeline.
+Furthermore, moving to a VPS would allow me to achieve a [personal goal for the year](2023-year-goals.md): setting up a complete CI/CD pipeline.
 
 In this blog post, we will walk you through the initial setup of a VPS with Linux CentOS 7.
 
