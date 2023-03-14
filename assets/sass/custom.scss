@@ -37,6 +37,11 @@ ul#nav-social>li {
     margin: 0;
 }
 
+ul#nav-links>li>a,
+ul#nav-social>li>a {
+    font-size: 14px;
+}
+
 a {
     color: #fff;
     text-decoration: underline;
