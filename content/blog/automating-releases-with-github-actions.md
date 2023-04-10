@@ -55,7 +55,7 @@ The "release" action consists of a single job called "create-release-notes", whi
 
 1. Checkout code: This step uses the `actions/checkout@v3` action to check out the repository's code to the workflow's workspace.
 
-2. Generate Release Notes: This step uses the `Decathlon/release-notes-generator-action@v3.1.6` action to generate release notes for the closed milestone. The `GITHUB_TOKEN` is passed as an environment variable `USER_TOKEN` to authenticate the API requests made by this action. 
+2. Generate Release Notes: This step uses the `Decathlon/release-notes-generator-action@v3.1.6` action to generate release notes for the closed milestone. Each time a milestone is closed, this GitHub action scans its attached issues and pull request, and automatically generates a release note with [Spring.io changelog generator](https://github.com/spring-io/github-changelog-generator) tool. The `GITHUB_TOKEN` is passed as an environment variable `USER_TOKEN` to authenticate the API requests made by this action. 
 
 3. Create Release: This step creates a GitHub release using the GitHub API. It extracts information from the closed milestone event payload, such as the milestone number and title, and the release notes generated in the previous step. It then constructs a JSON payload and makes a POST request to the GitHub API with the release data. The response from the API is logged for reference.
 
@@ -67,7 +67,7 @@ Here's a breakdown of the key components in the "create-release-notes" job:
 
 - GitHub API: The GitHub API is a powerful REST API that allows you to interact with GitHub repositories programmatically. In this case, it is used to create a release with the extracted milestone information and release notes.
 
-- Secrets: The `USER_TOKEN` environment variable is used instead of the repository's `GITHUB_TOKEN` to authenticate the API requests made by this step. This is because events triggered by the GITHUB_TOKEN do not create a new workflow run, which could result in an infinite loop of workflow runs. By using a Personal Access Token (PAT) as `USER_TOKEN`, you can avoid this issue and ensure that the GitHub release is created successfully. More information about this in [Triggering a workflow from a workflow](https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow).
+- Secrets: The `USER_TOKEN` environment variable is used instead of the repository's `GITHUB_TOKEN` to authenticate the API requests made by this step. This is because events triggered by the `GITHUB_TOKEN` do not create a new workflow run, which could result in an infinite loop of workflow runs. By using a Personal Access Token (PAT) as `USER_TOKEN`, you can avoid this issue and ensure that the GitHub release is created successfully. More information about this in [Triggering a workflow from a workflow](https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow).
 
 With this "release" action in place, you can ensure that every time a milestone is closed in your GitHub repository, the corresponding release notes are automatically generated and a GitHub release is created with the release notes, saving you time and effort in managing your software releases.
 
