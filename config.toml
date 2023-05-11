@@ -15,12 +15,6 @@ copyright = '&copy; Copyright {year}, Diogo Mesquita'
     name = 'About'
     title = 'About'
     url = '/about/'
-    weight = -110
-  [[menu.main]]
-    identifier = 'projects'
-    name = 'Projects'
-    title = 'Projects'
-    url = '/projects/'
     weight = -100
   [[menu.main]]
     identifier = 'blog'
@@ -28,6 +22,12 @@ copyright = '&copy; Copyright {year}, Diogo Mesquita'
     title = 'Blog'
     url = '/blog/'
     weight = -90
+  [[menu.main]]
+    identifier = 'projects'
+    name = 'Projects'
+    title = 'Projects'
+    url = '/projects/'
+    weight = -80  
 
 # Configuration Features
 [params]
@@ -36,7 +36,7 @@ copyright = '&copy; Copyright {year}, Diogo Mesquita'
   header_subtitle = 'Software Engineer | Cegid | Porto, 🇵🇹' # Your header subtitle
   home_image = '/avatar.jpg'          # Path to header image starting from the static directory
   recent_posts = 5                           # Max amount of recent posts to show
-  mainSections = ['about', 'projects', 'blog']   # Main sections to include in recent posts
+  mainSections = ['about', 'blog', 'projects']   # Main sections to include in recent posts
   [params.style]                             # CSS style overrides
     backgroundColor = '#131418'
     homeImageBorderColor = '#ffffff'
