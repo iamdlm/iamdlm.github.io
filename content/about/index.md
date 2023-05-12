@@ -10,5 +10,3 @@ When I'm not busy with my day job, I don my entrepreneur hat, running my solo di
 In my spare time, I love to build and share. I believe in learning in public and sharing my knowledge with the broader tech community. My [blog](../blog/) and [Twitter](https://twitter.com/iamdlm) feed are filled with insights from my journey, and I hope they can inspire or help someone else on their path.
 
 Feel free to connect with me on LinkedIn or Twitter. I'm always eager to engage in interesting conversations and potential collaborations. 
-
-Welcome to my digital world!"
