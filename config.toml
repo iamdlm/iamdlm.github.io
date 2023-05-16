@@ -4,7 +4,7 @@ title = 'Diogo Lewis Mesquita - Full Stack Engineer in Braga'
 theme = 'devise'
 relativeURLs = true
 enableEmoji = true
-googleAnalytics = ''
+googleAnalytics = 'G-S89YJR6LDR'
 enableRobotsTXT = true
 copyright = '&copy; Copyright {year}, Diogo Mesquita'
 
