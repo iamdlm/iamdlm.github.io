@@ -1,7 +1,7 @@
 ### About
 Hello 👋! I'm Diogo Lewis Mesquita, a software engineer by profession and a digital creator by passion. 
 
-With close to a decade of professional experience as a software engineer, I have been passionate about building websites and programming since my early teens.
+With close to a decade of professional experience as a software engineer, an academic background in Electrical and Computer Engineering and certification as a Microsoft Certified Solutions Developer, I have been passionate about building websites and programming since my early teens.
 
 I'm currently applying this expertise as a Senior Software Engineer at [Cegid](https://www.cegid.com/en/), a globally recognized brand, where I work on developing cloud-oriented SDKs. 
 
