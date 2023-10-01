@@ -1,7 +1,7 @@
 ---
 title: "What Is and What Is Not Dependency Injection"
 date: 2023-10-01T19:57:08+01:00
-draft: true
+draft: false
 ---
 # What Is and What Is Not Dependency Injection
 Have you ever been asked a question in an interview that made you pause and reflect? I recently found myself in such a situation during an interview for the role of a Senior Software Engineer. 
