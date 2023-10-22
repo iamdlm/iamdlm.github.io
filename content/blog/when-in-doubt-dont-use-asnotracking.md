@@ -49,12 +49,50 @@ using (var context = new MyDbContext())
 {{< /highlight >}}
 
 2. **Complex Queries**: 
-For complex queries involving multiple related entities that require change tracking, using `AsNoTracking` may lead to issues when updating or saving related data.
+For complex queries involving multiple related entities that require change tracking, using `AsNoTracking` may lead to issues when updating or saving related data. With enterprise applications it's easy to fall in this kind of scenarios. 
 
 3. **Long-Lived Contexts**: 
 In scenarios where the DbContext has a long lifespan (e.g., in a Windows service or a long-running application), using `AsNoTracking` excessively can lead to potential memory issues because entities are never released from memory.
 
 ## Performance Considerations:
 Using `AsNoTracking` can improve performance for read-heavy operations because EF doesn't spend time tracking changes. However, the performance gain can vary depending on the specific use case and the size of the dataset. **It's essential to profile and measure performance improvements** to ensure that using `AsNoTracking` is the right choice for your application.
+
+Although this post sounds like I'm against `AsNoTracking`, I'm definitly not and absolutely recommend it's use for read-only scearios because the performance gains can be huge.
+To demonstrate this, I set up a simple example with a class `Product`:
+
+{{< highlight csharp >}}
+using (var context = new MyDbContext())
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }    
+}
+{{< /highlight >}}
+
+Then I wrote a unit test to populate the `Products` `DbSet` with items varying from 100 to 1,000,000 and compared how much time it took to get a `ToList()` of the products, with and without `AsNoTracking`. 
+
+{{< highlight csharp >}}
+var stopwatch = new Stopwatch();
+
+// Without AsNoTracking
+stopwatch.Start();
+using (var context = new MyDbContext(options))
+{
+    var products = context.Products.ToList();
+}
+stopwatch.Stop();
+var withoutAsNoTrackingTime = stopwatch.ElapsedMilliseconds;
+
+// With AsNoTracking
+stopwatch.Restart();
+using (var context = new MyDbContext(options))
+{
+    var products = context.Products.AsNoTracking().ToList();
+}
+stopwatch.Stop();
+var withAsNoTrackingTime = stopwatch.ElapsedMilliseconds;
+{{< /highlight >}}
+
+Without surprise, executing `ToList()` with `AsNoTracking` was 5 to 10 times faster!
 
 The source code for this example is available [here](https://github.com/iamdlm/asnotracking-performance), in case you want to play around.
