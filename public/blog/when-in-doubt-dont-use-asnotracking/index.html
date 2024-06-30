@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-us"><head>
+    <title>Diogo Lewis Mesquita - Technical Team Lead in Porto</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S89YJR6LDR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-S89YJR6LDR', { 'anonymize_ip': false });
+}
+</script>
+
+</head><body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../avatar.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Diogo Lewis Mesquita
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Technical Team Lead | Cegid | Porto, 🇵🇹
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../blog/" title="Blog">Blog</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../projects/" title="Projects">Projects</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://github.com/iamdlm" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/diogoluismesquita/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/iamdlm" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="" target="_blank">
+                            <i class=" text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <p>In the last couple of months I spent countless hours helping different coworkers debug Entity Framework related errors, and a big chunk of them was because of Entity Framework (EF) change tracking misuse.</p>
+<h2 id="tracking-in-entity-framework">Tracking in Entity Framework</h2>
+<p>One of the features of EF is change tracking, where EF keeps track of changes made to the entities retrieved from the database. This tracking is essential for EF to perform CRUD (Create, Read, Update, Delete) operations and maintain a connection between the in-memory objects and the database.</p>
+<p>When you retrieve an entity from the database using EF, by default, EF tracks changes made to that entity. This means that if you modify the entity and then save it back to the database, EF will generate SQL statements to update only the properties that have changed.</p>
+<h2 id="asnotracking-in-entity-framework"><code>AsNoTracking</code> in Entity Framework</h2>
+<p>The <code>AsNoTracking</code> method in Entity Framework allows you to indicate that you don&rsquo;t want EF to track the changes made to entities. In other words, it tells EF not to include the entities in its change tracking mechanism. This can be useful in various scenarios:</p>
+<ol>
+<li><strong>Read-Only Operations</strong>:
+If you&rsquo;re performing read-only operations and you have no intention of updating the data, you can use <code>AsNoTracking</code> to improve performance and reduce memory usage. This is because EF doesn&rsquo;t need to keep track of changes for entities that won&rsquo;t be modified.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> context = <span style="color:#66d9ef">new</span> MyDbContext())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> products = context.Products.AsNoTracking().ToList();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// products is a list of Product entities without change tracking</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<ol start="2">
+<li><strong>Read-Heavy Scenarios</strong>:
+In scenarios where you read a lot of data but update it infrequently, using <code>AsNoTracking</code> can help improve performance. This can be beneficial in web applications or APIs where you frequently retrieve data but don&rsquo;t need to track changes.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> context = <span style="color:#66d9ef">new</span> MyDbContext())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> orders = context.Orders.AsNoTracking().Where(o =&gt; o.CustomerId == customerId).ToList();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// orders is a list of Order entities without change tracking</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h2 id="when-asnotracking-shouldnt-be-used">When <code>AsNoTracking</code> Shouldn&rsquo;t Be Used:</h2>
+<ol>
+<li><strong>Update Operations</strong>:
+If you plan to update entities and save changes back to the database, it&rsquo;s not advisable to use <code>AsNoTracking</code> because EF won&rsquo;t be able to track changes.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> context = <span style="color:#66d9ef">new</span> MyDbContext())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> product = context.Products.AsNoTracking().FirstOrDefault(p =&gt; p.Id == productId);
+</span></span><span style="display:flex;"><span>    product.Name = <span style="color:#e6db74">&#34;Updated Name&#34;</span>; <span style="color:#75715e">// This change won&#39;t be tracked</span>
+</span></span><span style="display:flex;"><span>    context.SaveChanges(); <span style="color:#75715e">// This won&#39;t update the database</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<ol start="2">
+<li>
+<p><strong>Complex Queries</strong>:
+For complex queries involving multiple related entities that require change tracking, using <code>AsNoTracking</code> may lead to issues when updating or saving related data. With enterprise applications it&rsquo;s easy to fall in this kind of scenarios.</p>
+</li>
+<li>
+<p><strong>Long-Lived Contexts</strong>:
+In scenarios where the DbContext has a long lifespan (e.g., in a Windows service or a long-running application), using <code>AsNoTracking</code> excessively can lead to potential memory issues because entities are never released from memory.</p>
+</li>
+</ol>
+<h2 id="performance-considerations">Performance Considerations:</h2>
+<p>Using <code>AsNoTracking</code> can improve performance for read-heavy operations because EF doesn&rsquo;t spend time tracking changes. However, the performance gain can vary depending on the specific use case and the size of the dataset. <strong>It&rsquo;s essential to profile and measure performance improvements</strong> to ensure that using <code>AsNoTracking</code> is the right choice for your application.</p>
+<p>Although this post sounds like I&rsquo;m against <code>AsNoTracking</code>, I&rsquo;m definitly not and absolutely recommend it&rsquo;s use for read-only scearios because the performance gains can be huge.
+To demonstrate this, I set up a simple example with a class <code>Product</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> context = <span style="color:#66d9ef">new</span> MyDbContext())
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Product</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Name { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }    
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>Then I wrote a unit test to populate the <code>Products</code> <code>DbSet</code> with items varying from 100 to 1,000,000 and compared how much time it took to get a <code>ToList()</code> of the products, with and without <code>AsNoTracking</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> stopwatch = <span style="color:#66d9ef">new</span> Stopwatch();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Without AsNoTracking</span>
+</span></span><span style="display:flex;"><span>stopwatch.Start();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> context = <span style="color:#66d9ef">new</span> MyDbContext(options))
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> products = context.Products.ToList();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>stopwatch.Stop();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> withoutAsNoTrackingTime = stopwatch.ElapsedMilliseconds;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// With AsNoTracking</span>
+</span></span><span style="display:flex;"><span>stopwatch.Restart();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> context = <span style="color:#66d9ef">new</span> MyDbContext(options))
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> products = context.Products.AsNoTracking().ToList();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>stopwatch.Stop();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> withAsNoTrackingTime = stopwatch.ElapsedMilliseconds;</span></span></code></pre></div>
+<p>Without surprise, executing <code>ToList()</code> with <code>AsNoTracking</code> was 5 to 10 times faster!</p>
+<p>The source code for this example is available <a href="https://github.com/iamdlm/asnotracking-performance">here</a>, in case you want to play around.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-4 pt-4">
+    <small class="text-muted">
+        
+        &copy; Copyright 2024, Diogo Mesquita
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer></body>
+</html>

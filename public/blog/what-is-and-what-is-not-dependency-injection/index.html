@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-us"><head>
+    <title>Diogo Lewis Mesquita - Technical Team Lead in Porto</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S89YJR6LDR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-S89YJR6LDR', { 'anonymize_ip': false });
+}
+</script>
+
+</head><body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../avatar.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Diogo Lewis Mesquita
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Technical Team Lead | Cegid | Porto, 🇵🇹
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../blog/" title="Blog">Blog</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../projects/" title="Projects">Projects</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://github.com/iamdlm" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/diogoluismesquita/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/iamdlm" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="" target="_blank">
+                            <i class=" text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <h1 id="what-is-and-what-is-not-dependency-injection">What Is and What Is Not Dependency Injection</h1>
+<p>Have you ever been asked a question in an interview that made you pause and reflect? I recently found myself in such a situation during an interview for the role of a Senior Software Engineer.</p>
+<h3 id="so-tell-me-what-is-dependency-injection-di">&ldquo;So tell me, what is Dependency Injection (DI)?&rdquo;</h3>
+<p>Dependency Injection it&rsquo;s a fundamental concept in software development, yet articulating a precise and clear answer can sometimes be challenging. In this blog post, we&rsquo;ll dive into Dependency Injection, explore what it is and what it isn&rsquo;t, and try to provide an ideal answer in the context of an interview.</p>
+<h2 id="dependency-injection-a-5-cent-concept-with-a-25-dollar-term">Dependency Injection: A 5-Cent Concept with a 25-Dollar Term</h2>
+<p>Dependency Injection, often abbreviated as DI, is a design pattern and technique that embodies the principle of Inversion of Control (IoC). IoC is all about changing the flow of control from your code to an external component or framework, which can lead to more maintainable and flexible software. But let&rsquo;s not get lost in jargon; as James Shore aptly puts it, <a href="https://www.jamesshore.com/v2/blog/2006/dependency-injection-demystified">&ldquo;Dependency Injection&rdquo; is a &ldquo;25-dollar term for a 5-cent concept.&rdquo;</a></p>
+<p>The core idea of Dependency Injection can be distilled into a simple statement: <strong>&ldquo;Dependency injection means giving an object its instance variables.&rdquo;</strong> This quote encapsulates the essence of DI. Instead of an object creating its own dependencies, they are provided or &ldquo;injected&rdquo; from the outside. This concept promotes loose coupling between components and enhances testability.</p>
+<p>To explore Dependency Injection further, let&rsquo;s delve into some practical examples using C#.</p>
+<h2 id="dependency-injection-in-c---what-it-is">Dependency Injection in C# - What It Is</h2>
+<p>Let&rsquo;s start with an example that demonstrates Dependency Injection:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Define an interface representing a dependency.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ILogger</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Log(<span style="color:#66d9ef">string</span> message);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create a concrete implementation of the dependency.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConsoleLogger</span> : ILogger
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Log(<span style="color:#66d9ef">string</span> message)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Console.WriteLine(message);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Class that depends on ILogger through constructor injection.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserService</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger logger;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> UserService(ILogger logger)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.logger = logger;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> DoSomething()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Using the injected logger to log a message.</span>
+</span></span><span style="display:flex;"><span>        logger.Log(<span style="color:#e6db74">&#34;Something happened.&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Configuring and using DI container (e.g., Microsoft&#39;s built-in container).</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> serviceProvider = <span style="color:#66d9ef">new</span> ServiceCollection()
+</span></span><span style="display:flex;"><span>        .AddScoped&lt;ILogger, ConsoleLogger&gt;()
+</span></span><span style="display:flex;"><span>        .AddScoped&lt;UserService&gt;()
+</span></span><span style="display:flex;"><span>        .BuildServiceProvider();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> userService = serviceProvider.GetService&lt;UserService&gt;();
+</span></span><span style="display:flex;"><span>    userService.DoSomething();
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+In this example:</p>
+<ol>
+<li>We define an <code>ILogger</code> interface representing a dependency (logging).</li>
+<li>We create a concrete implementation of the dependency (<code>ConsoleLogger</code>).</li>
+<li>The <code>UserService</code> class depends on <code>ILogger</code> through constructor injection, meaning it receives an <code>ILogger</code> instance via its constructor.</li>
+<li>We configure a DI container (in this case, Microsoft&rsquo;s built-in container) to map the dependencies.</li>
+<li>We resolve the <code>UserService</code> from the container, which automatically injects the <code>ConsoleLogger</code> into its constructor when creating the instance.</li>
+</ol>
+<h2 id="what-dependency-injection-is-not">What Dependency Injection Is Not</h2>
+<p>To fully grasp the concept of Dependency Injection, it&rsquo;s essential to understand what it&rsquo;s not. Consider the following non-DI example:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// A non-DI example where the class creates its dependencies directly.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserService</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger logger = <span style="color:#66d9ef">new</span> ConsoleLogger();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> DoSomething()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Using the directly created logger.</span>
+</span></span><span style="display:flex;"><span>        logger.Log(<span style="color:#e6db74">&#34;Something happened.&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></p>
+<p>In this non-DI example, the <code>UserService</code> class creates its <code>ILogger</code> dependency directly within the class. This tightly couples the class to a specific logger implementation (<code>ConsoleLogger</code>), making it less flexible and harder to test. It&rsquo;s essential to highlight this contrast in your interview response to demonstrate your understanding of Dependency Injection principles.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Dependency Injection might have a fancy name, but at its core, it&rsquo;s a simple and valuable concept in software development. It&rsquo;s all about &ldquo;giving an object its instance variables&rdquo; and promoting loose coupling and testability.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-4 pt-4">
+    <small class="text-muted">
+        
+        &copy; Copyright 2024, Diogo Mesquita
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer></body>
+</html>

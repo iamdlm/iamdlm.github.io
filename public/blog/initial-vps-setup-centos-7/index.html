@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-us"><head>
+    <title>Diogo Lewis Mesquita - Technical Team Lead in Porto</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S89YJR6LDR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-S89YJR6LDR', { 'anonymize_ip': false });
+}
+</script>
+
+</head><body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../avatar.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Diogo Lewis Mesquita
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Technical Team Lead | Cegid | Porto, 🇵🇹
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../blog/" title="Blog">Blog</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../projects/" title="Projects">Projects</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://github.com/iamdlm" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/diogoluismesquita/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/iamdlm" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="" target="_blank">
+                            <i class=" text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <h1 id="initial-vps-setup-with-linux-centos-7">Initial VPS setup with Linux CentOS 7</h1>
+<p>Virtual Private Server (VPS) have become increasingly popular over the years due to their flexibility and affordability. They allow you to have a dedicated server environment without the need for expensive hardware.</p>
+<p>For a while now, I&rsquo;ve been wanting to migrate my web apps from personal projects to a Virtual Private Server (VPS). This desire stems not only from the challenge it presents, but also because it would give me complete control over software versions, updates, tools, and more.</p>
+<p>Furthermore, moving to a VPS would allow me to achieve a <a href="2023-year-goals.md">personal goal for the year</a>: setting up a complete CI/CD pipeline.</p>
+<p>In this blog post, I&rsquo;&rsquo;l will walk you through the steps I took for the initial setup of my VPS with Linux CentOS 7.</p>
+<h2 id="step-1-logging-in-and-updating-packages">Step 1: Logging in and Updating Packages</h2>
+<p>Once you have your VPS credentials, the first thing you will need to do is log in to your server using SSH. You will need to have an SSH client installed on your local machine. On a Mac or Linux computer, you can use the Terminal application. On Windows, you can use a program like PuTTY.</p>
+<p>Once you are logged in, the first thing you should do is update your system packages. To do this, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum update</span></span></code></pre></div>
+<p>This command will update all of the packages on your system to their latest versions.</p>
+<h2 id="step-2-creating-a-new-user">Step 2: Creating a New User</h2>
+<p>By default, the root user is the only user on the system. It is not recommended to use the root user for regular use because it has full access to the system. Therefore, it is best to create a new user and use that user for day-to-day operations.</p>
+<p>To create a new user, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo adduser username</span></span></code></pre></div>
+<p>Replace &ldquo;username&rdquo; with the name you want to give your new user. You will then be prompted to create a password and enter some basic information about the user.</p>
+<h2 id="step-3-granting-sudo-access">Step 3: Granting Sudo Access</h2>
+<p>By default, the new user does not have sudo (superuser) access. Sudo access is required to perform administrative tasks on the system. To grant sudo access, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo usermod -aG wheel username</span></span></code></pre></div>
+<p>This command adds the new user to the &ldquo;wheel&rdquo; group, which has sudo access.</p>
+<h2 id="step-4-adding-public-key-authentication">Step 4: Adding Public Key Authentication</h2>
+<p>Public key authentication is a more secure way to log in to your VPS compared to using passwords. It involves generating a public and private key pair, where the private key is kept on your local machine and the public key is added to your VPS.</p>
+<p>To generate a key pair, run the following command on your local machine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen</span></span></code></pre></div>
+<p>You will be prompted to enter a filename for the key pair and a passphrase to protect the private key. Once you have generated the key pair, you need to add the public key to your VPS.</p>
+<p>Log in to your VPS with your non-root user and run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir ~/.ssh
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">700</span> ~/.ssh
+</span></span><span style="display:flex;"><span>nano ~/.ssh/authorized_keys</span></span></code></pre></div>
+<p>This creates a new directory for your ssh keys, sets the permissions, and opens the authorized_keys file in the nano text editor.</p>
+<p>Copy the public key from your local machine (it should be in the file you specified when generating the key pair, with a .pub extension) and paste it into the authorized_keys file on your VPS. Save and exit the file.</p>
+<p>Finally, set the permissions on the authorized_keys file by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ~/.ssh/authorized_keys</span></span></code></pre></div>
+<p>From now on, you will be able to log in to your VPS with public key authentication instead of a password.</p>
+<h2 id="step-5-disabling-root-login">Step 5: Disabling Root Login</h2>
+<p>To improve the security of your VPS, it is recommended to disable direct root login. To do this, edit the sshd configuration file by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/ssh/sshd_config</span></span></code></pre></div>
+<p>Find the line that says &ldquo;PermitRootLogin yes&rdquo; and change it to &ldquo;PermitRootLogin no&rdquo;. Save and exit the file.</p>
+<p>Restart the sshd service by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart sshd</span></span></code></pre></div>
+<p>From now on, you will need to log in with your non-root user and then use sudo to perform administrative tasks.</p>
+<h2 id="step-6-configuring-firewall-with-iptables">Step 6: Configuring Firewall with iptables</h2>
+<p>Finally, it&rsquo;s important to configure the firewall on your VPS to protect it from unauthorized access. CentOS 7 comes with a default firewall called firewalld, but we&rsquo;ll be using the older and more established iptables instead. Before we install and configure iptables, we need to disable firewalld:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl stop firewalld
+</span></span><span style="display:flex;"><span>sudo systemctl mask firewalld</span></span></code></pre></div>
+<p>This stops the firewalld service and masks it, which prevents it from starting automatically on boot.</p>
+<p>Next, we can install and configure iptables:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum install iptables-services
+</span></span><span style="display:flex;"><span>sudo systemctl enable iptables
+</span></span><span style="display:flex;"><span>sudo systemctl start iptables</span></span></code></pre></div>
+<p>This installs the iptables services package, enables the iptables service to start on boot, and starts the service.</p>
+<p>Now we can configure the iptables rules. For example, to allow incoming SSH traffic, we need to add a rule to allow traffic on port 22:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo iptables -A INPUT -p tcp --dport <span style="color:#ae81ff">22</span> -j ACCEPT</span></span></code></pre></div>
+<p>This adds a rule to the INPUT chain to accept TCP traffic on port 22 (SSH).</p>
+<p>To allow incoming HTTP traffic, we can add a rule to allow traffic on port 80:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo iptables -A INPUT -p tcp --dport <span style="color:#ae81ff">80</span> -j ACCEPT</span></span></code></pre></div>
+<p>To allow incoming HTTPS traffic, we can add a rule to allow traffic on port 443:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo iptables -A INPUT -p tcp --dport <span style="color:#ae81ff">443</span> -j ACCEPT</span></span></code></pre></div>
+<p>You can add additional rules as needed, depending on the services you&rsquo;ll be running on your VPS.</p>
+<p>To make sure these rules are saved and applied after a reboot, we need to save them to the iptables configuration file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo service iptables save</span></span></code></pre></div>
+<p>This saves the current iptables rules to the configuration file.</p>
+<h2 id="step-7-installing-fail2ban">Step 7: Installing fail2ban</h2>
+<p>Another important security measure you can take to protect your VPS is to install and configure fail2ban, which is a tool that helps prevent brute-force attacks by monitoring log files and banning IP addresses that show suspicious behavior.</p>
+<p>To install fail2ban, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum install epel-release fail2ban</span></span></code></pre></div>
+<p>Once fail2ban is installed, you need to create a copy of the default configuration file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local</span></span></code></pre></div>
+<p>This creates a local copy of the configuration file that you can customize without affecting the default settings.</p>
+<p>Next, open the jail.local file in your preferred text editor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/fail2ban/jail.local</span></span></code></pre></div>
+<p>This file contains all the default settings for fail2ban, as well as any custom settings you add.</p>
+<p>You can customize fail2ban by modifying the various settings in the file. For example, you can adjust the ban time and findtime settings to control how long IPs are banned and how frequently the logs are checked for suspicious activity.</p>
+<p>Once you&rsquo;ve made any necessary changes to the configuration file, save and close it.</p>
+<p>Finally, start the fail2ban service and enable it to start on boot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start fail2ban
+</span></span><span style="display:flex;"><span>sudo systemctl enable fail2ban</span></span></code></pre></div>
+<p>fail2ban is now installed and configured on your VPS to help prevent brute-force attacks and enhance your overall security.</p>
+<p>That&rsquo;s it! Your VPS is now configured with a secure user account, public key authentication, sudo access, disabled root login, and a firewall using iptables.</p>
+<p>By following these steps, you will have a solid foundation for your VPS and be ready to start deploying your applications.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-4 pt-4">
+    <small class="text-muted">
+        
+        &copy; Copyright 2024, Diogo Mesquita
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer></body>
+</html>

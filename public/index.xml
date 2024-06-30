@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diogo Lewis Mesquita - Technical Team Lead in Porto</title>
+    <link>https://iamdlm.github.io/</link>
+    <description>Recent content on Diogo Lewis Mesquita - Technical Team Lead in Porto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright {year}, Diogo Mesquita</copyright>
+    <lastBuildDate>Sun, 08 Oct 2023 15:38:24 +0100</lastBuildDate><atom:link href="https://iamdlm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When in Doubt, Don&#39;t Use AsNoTracking</title>
+      <link>https://iamdlm.github.io/blog/when-in-doubt-dont-use-asnotracking/</link>
+      <pubDate>Sun, 08 Oct 2023 15:38:24 +0100</pubDate>
+      
+      <guid>https://iamdlm.github.io/blog/when-in-doubt-dont-use-asnotracking/</guid>
+      <description>In the last couple of months I spent countless hours helping different coworkers debug Entity Framework related errors, and a big chunk of them was because of Entity Framework (EF) change tracking misuse.
+Tracking in Entity Framework One of the features of EF is change tracking, where EF keeps track of changes made to the entities retrieved from the database. This tracking is essential for EF to perform CRUD (Create, Read, Update, Delete) operations and maintain a connection between the in-memory objects and the database.</description>
+    </item>
+    
+    <item>
+      <title>What Is and What Is Not Dependency Injection</title>
+      <link>https://iamdlm.github.io/blog/what-is-and-what-is-not-dependency-injection/</link>
+      <pubDate>Sun, 01 Oct 2023 19:57:08 +0100</pubDate>
+      
+      <guid>https://iamdlm.github.io/blog/what-is-and-what-is-not-dependency-injection/</guid>
+      <description>What Is and What Is Not Dependency Injection Have you ever been asked a question in an interview that made you pause and reflect? I recently found myself in such a situation during an interview for the role of a Senior Software Engineer.
+&amp;ldquo;So tell me, what is Dependency Injection (DI)?&amp;rdquo; Dependency Injection it&amp;rsquo;s a fundamental concept in software development, yet articulating a precise and clear answer can sometimes be challenging.</description>
+    </item>
+    
+    <item>
+      <title>Remote Validations in ASP.NET Core with FluentValidation</title>
+      <link>https://iamdlm.github.io/blog/remote-validations-in-aspnet-core/</link>
+      <pubDate>Fri, 12 May 2023 20:45:26 +0100</pubDate>
+      
+      <guid>https://iamdlm.github.io/blog/remote-validations-in-aspnet-core/</guid>
+      <description>Remote Validations in ASP.NET Core In modern web development, validating user input is a critical aspect of creating robust and reliable applications. When it comes to remote validations, ASP.NET provides a powerful mechanism to validate user input without making a round trip to the server. In this blog post, we will dive into the concept of remote validations and demonstrate how to implement them in C# Razor Pages using a simple example (source code here).</description>
+    </item>
+    
+    <item>
+      <title>Automating Releases With Github Actions</title>
+      <link>https://iamdlm.github.io/blog/automating-releases-with-github-actions/</link>
+      <pubDate>Sat, 08 Apr 2023 11:08:45 +0100</pubDate>
+      
+      <guid>https://iamdlm.github.io/blog/automating-releases-with-github-actions/</guid>
+      <description>Automating Releases With Github Actions As a software developer, managing releases and keeping track of release notes can be a time-consuming task. However, with the help of GitHub Actions, you can automate this process to streamline your workflow and ensure accurate and up-to-date release notes. In this blog post, we will dive into a specific GitHub Action which automates the process of writing releases notes and creating a release with the generated release notes for closed milestones in a GitHub repository.</description>
+    </item>
+    
+    <item>
+      <title>Build and Test ASP.NET Core With GitHub Actions</title>
+      <link>https://iamdlm.github.io/blog/build-and-test-dotnet-core-with-github-actions/</link>
+      <pubDate>Sun, 19 Mar 2023 18:50:57 +0000</pubDate>
+      
+      <guid>https://iamdlm.github.io/blog/build-and-test-dotnet-core-with-github-actions/</guid>
+      <description>Build and Test ASP.NET Core With GitHub Actions GitHub Actions is a powerful feature of the GitHub platform that allows developers to automate their software development workflows. In this blog post, I will explain a sample GitHub action that builds and runs tests on a .NET Core project. This GitHub action can be used as a starting point to create a continuous integration workflow that is triggered on a pull request.</description>
+    </item>
+    
+    <item>
+      <title>Initial VPS setup with Linux CentOS 7</title>
+      <link>https://iamdlm.github.io/blog/initial-vps-setup-centos-7/</link>
+      <pubDate>Fri, 10 Mar 2023 22:38:11 +0000</pubDate>
+      
+      <guid>https://iamdlm.github.io/blog/initial-vps-setup-centos-7/</guid>
+      <description>Initial VPS setup with Linux CentOS 7 Virtual Private Server (VPS) have become increasingly popular over the years due to their flexibility and affordability. They allow you to have a dedicated server environment without the need for expensive hardware.
+For a while now, I&amp;rsquo;ve been wanting to migrate my web apps from personal projects to a Virtual Private Server (VPS). This desire stems not only from the challenge it presents, but also because it would give me complete control over software versions, updates, tools, and more.</description>
+    </item>
+    
+    <item>
+      <title>2023 Year Goals</title>
+      <link>https://iamdlm.github.io/blog/2023-year-goals/</link>
+      <pubDate>Sun, 05 Mar 2023 15:54:16 +0000</pubDate>
+      
+      <guid>https://iamdlm.github.io/blog/2023-year-goals/</guid>
+      <description>2023 Year Goals For every company I’ve worked in my career, there were yearly goals to work towards, but I’ve never really done the same with personal goals. Well, the last couple of years have gone by, and I felt I did not accomplish much on a personal level as there was no tracked record and/or measurable improvements on key aspects of life such as health, fitness, finances, or career.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://iamdlm.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://iamdlm.github.io/about/</guid>
+      <description>About Hello 👋! I&amp;rsquo;m Diogo Lewis Mesquita, a software engineer by profession and a digital creator by passion.
+With close to a decade of professional experience as a software engineer, an academic background in Electrical and Computer Engineering and certification as a Microsoft Certified Solutions Developer, I have been passionate about building websites and programming since my early teens.
+I&amp;rsquo;m currently applying this expertise as a Technical Team Lead at Cegid, a globally recognized brand, where I work on developing cloud-oriented SDKs.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://iamdlm.github.io/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://iamdlm.github.io/projects/</guid>
+      <description>Projects suspended Contesta it&amp;rsquo;s a web application that leverages LLMs to generate documents that people can use to dispute traffic tickets in Portugal.</description>
+    </item>
+    
+  </channel>
+</rss>

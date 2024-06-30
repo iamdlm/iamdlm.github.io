@@ -58,6 +58,35 @@ a {
     }
 }
 
+.fa-1x {
+    font-size: 1em !important;
+}
+
 #home-image {
     border: none;
+}
+
+.label {
+    padding: 0.2em 0.6em;
+    border-radius: 0.25em;
+    font-size: 0.85em;
+    color: white;
+    font-weight: bold;
+
+    &.active {
+        background-color: green;
+    }
+
+    &.discontinued {
+        background-color: red;
+    }
+
+    &.suspended {
+        background-color: yellow;
+        color: black;
+    }
+
+    &.acquired {
+        background-color: red;
+    }
 }

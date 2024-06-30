@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-us"><head>
+    <title>Diogo Lewis Mesquita - Technical Team Lead in Porto</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S89YJR6LDR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-S89YJR6LDR', { 'anonymize_ip': false });
+}
+</script>
+
+</head><body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../avatar.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Diogo Lewis Mesquita
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Technical Team Lead | Cegid | Porto, 🇵🇹
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../blog/" title="Blog">Blog</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../projects/" title="Projects">Projects</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://github.com/iamdlm" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/diogoluismesquita/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/iamdlm" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="" target="_blank">
+                            <i class=" text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <h1 id="remote-validations-in-aspnet-core">Remote Validations in ASP.NET Core</h1>
+<p>In modern web development, validating user input is a critical aspect of creating robust and reliable applications. When it comes to remote validations, ASP.NET provides a powerful mechanism to validate user input without making a round trip to the server. In this blog post, we will dive into the concept of remote validations and demonstrate how to implement them in C# Razor Pages using a simple example (source code <a href="https://github.com/iamdlm/remote-validations">here</a>).</p>
+<p>Let&rsquo;s consider the <code>Student</code> class that represents student information. We want to validate the enrollment date to ensure it is not in the future. To achieve this, we need to apply remote validation to the <code>EnrollmentDate</code> property of the <code>Student</code> class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Properties and other attributes...</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [PageRemote(
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">        ErrorMessage = &#34;Date cannot be in the future.&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">        HttpMethod = &#34;post&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">        PageHandler = &#34;ValidateEnrollmentDate&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    )]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [DataType(DataType.Date)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [DisplayFormat(DataFormatString = &#34;{0:yyyy-MM-dd}&#34;, ApplyFormatInEditMode = true)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [Display(Name = &#34;Enrollment Date&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DateTime EnrollmentDate { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Other properties and methods...</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>In the Student class, we apply the <code>[PageRemote]</code> attribute to the <code>EnrollmentDate</code> property. This attribute configures the remote validation behavior by specifying the error message, HTTP method, and page handler method to invoke.</p>
+<p>In the corresponding <code>Create.cshtml.cs</code> file, we add a page handler method called <code>OnPostValidateEnrollmentDate</code>. This method performs the server-side validation logic for the <code>EnrollmentDate</code> property.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> JsonResult OnPostValidateEnrollmentDate()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> result = Student.EnrollmentDate &lt; DateTime.UtcNow;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonResult(result);
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>At this stage, if we try to enter a future date in the <code>EnrollmentDate</code> field, the remote validation will fail with a 400 Bad Request.
+That&rsquo;s because the anti-forgery token is not included in the AJAX request. To fix this, we need to add the <code>data-val-remote-additionalfields</code> attribute to the input field associated with the <code>EnrollmentDate</code> property in the <code>Create.cshtml</code> file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">asp-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Student.EnrollmentDate&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span> <span style="color:#a6e22e">data-val-remote-additionalfields</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__RequestVerificationToken&#34;</span> /&gt;</span></span></code></pre></div>
+<p>Now, if we try to enter a future date in the <code>EnrollmentDate</code> field, the remote validation will succeed and the form will be submitted successfully.</p>
+<h2 id="using-fluentvalidation-for-remote-validations">Using FluentValidation for Remote Validations</h2>
+<p><a href="https://docs.fluentvalidation.net/en/latest/">FluentValidation</a> is a popular validation library in the .NET ecosystem that provides a fluent and expressive API for defining validation rules. By leveraging FluentValidation, we can seamlessly integrate remote validations into our C# Razor Pages application.</p>
+<p>For this example, we&rsquo;ll use the class called <code>Instructor</code> that represents instructor information. We want to validate the hire date to ensure it is not in the future. To accomplish this, we will combine the power of the <code>[PageRemote]</code> attribute with FluentValidation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Instructor</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Properties and other attributes...</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [PageRemote(
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">        ErrorMessage = &#34;Date cannot be in the future.&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">        HttpMethod = &#34;post&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">        PageHandler = &#34;ValidateHireDate&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    )]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [DataType(DataType.Date)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [DisplayFormat(DataFormatString = &#34;{0:yyyy-MM-dd}&#34;, ApplyFormatInEditMode = true)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [Display(Name = &#34;Hire Date&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DateTime HireDate { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Other properties and methods...</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>Next, create a <code>InstructorValidator</code> class that inherits from <code>AbstractValidator&lt;Instructor&gt;</code>. Inside this class, we define the validation rules for the <code>Instructor</code> object using the FluentValidation API.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InstructorValidator</span> : AbstractValidator&lt;Instructor&gt;
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> InstructorValidator()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        RuleFor(i =&gt; i.LastName).NotNull().Length(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">50</span>);
+</span></span><span style="display:flex;"><span>        RuleFor(i =&gt; i.FirstMidName).NotNull().Length(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">50</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// HireDate should not be null nor in the future.</span>
+</span></span><span style="display:flex;"><span>        RuleFor(i =&gt; i.HireDate).NotNull().LessThan(DateTime.UtcNow);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>In the <code>Create.cshtml.cs</code> file, we define the <code>OnPostValidateHireDate</code> page handler method. This method receives an instance of the <code>Instructor</code> object and performs the server-side validation logic. We create a validation context and pass it to the <code>InstructorValidator</code> class, which is responsible for validating the object using FluentValidation. The result is then returned as a <code>JsonResult</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> JsonResult OnPostValidateHireDate(Instructor instructor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (instructor != <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> properties = <span style="color:#66d9ef">new</span>[] { <span style="color:#e6db74">&#34;HireDate&#34;</span> };
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> context = <span style="color:#66d9ef">new</span> ValidationContext&lt;Instructor&gt;(instructor, <span style="color:#66d9ef">new</span> PropertyChain(), <span style="color:#66d9ef">new</span> MemberNameValidatorSelector(properties));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        IValidator v = <span style="color:#66d9ef">new</span> InstructorValidator();
+</span></span><span style="display:flex;"><span>        ValidationResult result = v.Validate(context);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonResult(result.IsValid);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonResult(<span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>Once again, don&rsquo;t forget to add the <code>data-val-remote-additionalfields</code> attribute to the input field associated with the <code>HireDate</code> property in the <code>Create.cshtml</code> file. This ensures that the anti-forgery token is included in the AJAX request.</p>
+<p>Source code for this example is available <a href="https://github.com/iamdlm/remote-validations">here</a>.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-4 pt-4">
+    <small class="text-muted">
+        
+        &copy; Copyright 2024, Diogo Mesquita
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer></body>
+</html>

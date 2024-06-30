@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en-us"><head>
+    <title>Diogo Lewis Mesquita - Technical Team Lead in Porto</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="../../css/custom.min.css">
+    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S89YJR6LDR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-S89YJR6LDR', { 'anonymize_ip': false });
+}
+</script>
+
+</head><body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../avatar.jpg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Diogo Lewis Mesquita
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Technical Team Lead | Cegid | Porto, 🇵🇹
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../about/" title="About">About</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../blog/" title="Blog">Blog</a>
+                    </li>
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="../../projects/" title="Projects">Projects</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://github.com/iamdlm" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/diogoluismesquita/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/iamdlm" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="" target="_blank">
+                            <i class=" text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <h1 id="automating-releases-with-github-actions">Automating Releases With Github Actions</h1>
+<p>As a software developer, managing releases and keeping track of release notes can be a time-consuming task. However, with the help of GitHub Actions, you can automate this process to streamline your workflow and ensure accurate and up-to-date release notes. In this blog post, we will dive into a specific GitHub Action which automates the process of writing releases notes and creating a release with the generated release notes for closed milestones in a GitHub repository.</p>
+<p>To set up the &ldquo;release&rdquo; action in your own GitHub repository, you can create a new workflow file in the .github/workflows directory with the following content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">release</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>: 
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">milestone</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">types</span>: [<span style="color:#ae81ff">closed]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">create-release-notes</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout code</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v3</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Generate Release Notes</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">Decathlon/release-notes-generator-action@v3.1.6</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.USER_TOKEN }}</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Create Release</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">GITHUB_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.USER_TOKEN }}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        # Get milestone number from event payload
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        milestone_number=$(jq --raw-output .milestone.number &#34;$GITHUB_EVENT_PATH&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        # Get milestone title from event payload
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        milestone_title=$(jq --raw-output .milestone.title &#34;$GITHUB_EVENT_PATH&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        # Get release notes from previous step
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        release_notes=$(cat ${{ github.workspace }}/release_file.md)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        # Create release using GitHub API
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        release_data=$(echo &#39;{}&#39; | jq --arg tag_name &#34;$milestone_title&#34; --arg name &#34;$milestone_title&#34; --arg body &#34;$release_notes&#34; &#39;. + { tag_name: $tag_name, name: $name, body: $body }&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        response=$(curl --silent --request POST --header &#34;Authorization: token $GITHUB_TOKEN&#34; --header &#34;Accept: application/vnd.github.v3+json&#34; --url &#34;https://api.github.com/repos/${{ github.repository }}/releases&#34; --data &#34;$release_data&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        # Log response
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;$response&#34;</span>        </span></span></code></pre></div>
+<p>The &ldquo;release&rdquo; action is triggered by the closing of a milestone in the repository, as specified by the following configuration:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">milestone</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">types</span>: [<span style="color:#ae81ff">closed]</span></span></span></code></pre></div></p>
+<p>This means that whenever a milestone is closed in the repository, the &ldquo;release&rdquo; action will be triggered.</p>
+<p>The &ldquo;release&rdquo; action consists of a single job called &ldquo;create-release-notes&rdquo;, which runs on the latest version of Ubuntu. The job is comprised of three steps:</p>
+<ol>
+<li>
+<p>Checkout code: This step uses the <code>actions/checkout@v3</code> action to check out the repository&rsquo;s code to the workflow&rsquo;s workspace.</p>
+</li>
+<li>
+<p>Generate Release Notes: This step uses the <code>Decathlon/release-notes-generator-action@v3.1.6</code> action to generate release notes for the closed milestone. Each time a milestone is closed, this GitHub action scans its attached issues and pull request, and automatically generates a release note with <a href="https://github.com/spring-io/github-changelog-generator">Spring.io changelog generator</a> tool. The <code>GITHUB_TOKEN</code> is passed as an environment variable <code>USER_TOKEN</code> to authenticate the API requests made by this action.</p>
+</li>
+<li>
+<p>Create Release: This step creates a GitHub release using the GitHub API. It extracts information from the closed milestone event payload, such as the milestone number and title, and the release notes generated in the previous step. It then constructs a JSON payload and makes a POST request to the GitHub API with the release data. The response from the API is logged for reference.</p>
+</li>
+</ol>
+<p>Here&rsquo;s a breakdown of the key components in the &ldquo;create-release-notes&rdquo; job:</p>
+<ul>
+<li>
+<p><code>jq</code>: This is a lightweight and flexible command-line JSON processor that is used to extract data from the JSON payload of the closed milestone event. It is used to extract the milestone number, title, and release notes from the event payload.</p>
+</li>
+<li>
+<p><code>curl</code>: This is a widely-used command-line tool for making HTTP requests. It is used to make a POST request to the GitHub API to create a release with the release data constructed from the extracted milestone information and release notes.</p>
+</li>
+<li>
+<p>GitHub API: The GitHub API is a powerful REST API that allows you to interact with GitHub repositories programmatically. In this case, it is used to create a release with the extracted milestone information and release notes.</p>
+</li>
+<li>
+<p>Secrets: The <code>USER_TOKEN</code> environment variable is used instead of the repository&rsquo;s <code>GITHUB_TOKEN</code> to authenticate the API requests made by this step. This is because events triggered by the <code>GITHUB_TOKEN</code> do not create a new workflow run, which could result in an infinite loop of workflow runs. By using a Personal Access Token (PAT) as <code>USER_TOKEN</code>, you can avoid this issue and ensure that the GitHub release is created successfully. More information about this in <a href="https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow">Triggering a workflow from a workflow</a>.</p>
+</li>
+</ul>
+<p>With this &ldquo;release&rdquo; action in place, you can ensure that every time a milestone is closed in your GitHub repository, the corresponding release notes are automatically generated and a GitHub release is created with the release notes, saving you time and effort in managing your software releases.</p>
+<p>Give it a try and see how it can benefit your development workflow.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-4 pt-4">
+    <small class="text-muted">
+        
+        &copy; Copyright 2024, Diogo Mesquita
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer></body>
+</html>
