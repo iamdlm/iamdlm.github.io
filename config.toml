@@ -1,6 +1,6 @@
 baseURL = 'https://iamdlm.github.io/'
 languageCode = 'en-us'
-title = 'Diogo Lewis Mesquita - Full Stack Engineer in Braga'
+title = 'Diogo Lewis Mesquita - Technical Team Lead in Porto'
 theme = 'devise'
 relativeURLs = true
 enableEmoji = true
@@ -31,9 +31,9 @@ copyright = '&copy; Copyright {year}, Diogo Mesquita'
 
 # Configuration Features
 [params]
-  description = 'Diogo Lewis Mesquita Full Stack Engineer in Braga'      # Your meta description of the site
+  description = 'Diogo Lewis Mesquita Technical Team Lead in Porto'      # Your meta description of the site
   header_title = 'Diogo Lewis Mesquita'                 # Your header title
-  header_subtitle = 'Software Engineer | Cegid | Porto, 🇵🇹' # Your header subtitle
+  header_subtitle = 'Technical Team Lead | Cegid | Porto, 🇵🇹' # Your header subtitle
   home_image = '/avatar.jpg'          # Path to header image starting from the static directory
   recent_posts = 5                           # Max amount of recent posts to show
   mainSections = ['about', 'blog', 'projects']   # Main sections to include in recent posts
