@@ -67,26 +67,25 @@ a {
 }
 
 .label {
-    padding: 0.2em 0.6em;
+    padding: 0.2em 0.2em;
     border-radius: 0.25em;
     font-size: 0.85em;
     color: white;
     font-weight: bold;
 
     &.active {
-        background-color: green;
+        background-color: #28a745;
     }
 
     &.discontinued {
-        background-color: red;
+        background-color: #721c24;
     }
 
     &.suspended {
-        background-color: yellow;
-        color: black;
+        background-color: #dc3545;
     }
 
     &.acquired {
-        background-color: red;
+        background-color: #007bff;
     }
 }
