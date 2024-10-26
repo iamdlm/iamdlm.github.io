@@ -1,5 +1,5 @@
 ---
-title: "When in Doubt, Don't Use AsNoTracking"
+title: "Exposing bad architecture design with AsNoTracking"
 date: 2023-10-08T15:38:24+01:00
 draft: false
 ---
