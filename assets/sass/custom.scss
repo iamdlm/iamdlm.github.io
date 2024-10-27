@@ -67,12 +67,10 @@ a {
 }
 
 .label {
-    padding: 0.2em 0.2em;
-    border-radius: 0.25em;
-    font-size: 0.85em;
-    color: white;
-    font-weight: bold;
-
+    width: .25rem;
+    height: .25rem;
+    border-radius: 9999px;
+    
     &.active {
         background-color: #28a745;
     }
