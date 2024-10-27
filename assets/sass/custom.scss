@@ -67,6 +67,8 @@ a {
 }
 
 .label {
+    display: inline-block;
+    vertical-align: middle;
     width: .25rem;
     height: .25rem;
     border-radius: 9999px;
