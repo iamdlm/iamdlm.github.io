@@ -1,5 +1,6 @@
 ---
 title: "What Is and What Is Not Dependency Injection"
+categories: [programming, dotnet, design-patterns]
 date: 2023-10-01T19:57:08+01:00
 draft: false
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Build and Test ASP.NET Core With GitHub Actions"
+categories: [devops]
 date: 2023-03-19T18:50:57Z
 draft: false
 ---

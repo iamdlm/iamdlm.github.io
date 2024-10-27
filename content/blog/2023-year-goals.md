@@ -1,5 +1,6 @@
 ---
 title: "2023 Year Goals"
+categories: [personal]
 date: 2023-03-05T15:54:16Z
 draft: false
 ---

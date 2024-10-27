@@ -1,5 +1,6 @@
 ---
 title: "Initial VPS setup with Linux CentOS 7"
+categories: [sysadmin, devops]
 date: 2023-03-10T22:38:11Z
 draft: false
 ---

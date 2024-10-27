@@ -1,5 +1,6 @@
 ---
 title: "Automating Releases With Github Actions"
+categories: [devops]
 date: 2023-04-08T11:08:45+01:00
 draft: false
 ---

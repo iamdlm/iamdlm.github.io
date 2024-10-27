@@ -1,5 +1,6 @@
 ---
 title: "Exposing bad architecture design with AsNoTracking"
+categories: [programming, dotnet, entity-framework]
 date: 2023-10-08T15:38:24+01:00
 draft: false
 ---

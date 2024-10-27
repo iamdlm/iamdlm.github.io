@@ -1,5 +1,6 @@
 ---
 title: "Remote Validations in ASP.NET Core with FluentValidation"
+categories: [programming, dotnet]
 date: 2023-05-12T20:45:26+01:00
 draft: false
 ---
