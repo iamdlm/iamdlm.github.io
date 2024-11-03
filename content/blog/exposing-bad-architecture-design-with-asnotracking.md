@@ -36,8 +36,8 @@ using (var context = new MyDbContext())
 }
 {{< /highlight >}}
 
-## When `AsNoTracking` Shouldn't Be Used:
-1. **Update Operations**: 
+## When `AsNoTracking` Shouldn't Be Used
+1. **Update Operations**
 If you plan to update entities and save changes back to the database, it's not advisable to use `AsNoTracking` because EF won't be able to track changes.
 
 {{< highlight csharp >}}
@@ -49,13 +49,18 @@ using (var context = new MyDbContext())
 }
 {{< /highlight >}}
 
-2. **Complex Queries**: 
+2. **Complex Queries** 
 For complex queries involving multiple related entities that require change tracking, using `AsNoTracking` may lead to issues when updating or saving related data. With enterprise applications it's easy to fall in this kind of scenarios. 
 
-3. **Long-Lived Contexts**: 
+3. **Long-Lived Contexts**
 In scenarios where the DbContext has a long lifespan (e.g., in a Windows service or a long-running application), using `AsNoTracking` excessively can lead to potential memory issues because entities are never released from memory.
 
-## Performance Considerations:
+Case 2 is where I've spent most of the time debugging and after a while I've come to the conclusion that the misuse of `AsNoTracking` is a symptom of bigger problems:
+- Poorly designed architecture not following the principles it was supposed to (either DDD, CQRS, etc) 
+- SWE not trained properly on the architecture design and principles behind it
+- Unclear or lacking documentation
+
+## Performance Considerations
 Using `AsNoTracking` can improve performance for read-heavy operations because EF doesn't spend time tracking changes. However, the performance gain can vary depending on the specific use case and the size of the dataset. **It's essential to profile and measure performance improvements** to ensure that using `AsNoTracking` is the right choice for your application.
 
 Although this post sounds like I'm against `AsNoTracking`, I'm definitly not and absolutely recommend it's use for read-only scearios because the performance gains can be huge.
@@ -70,7 +75,7 @@ public class Product
 }
 {{< /highlight >}}
 
-Then I wrote a unit test to populate the `Products` `DbSet` with items varying from 100 to 1,000,000 and compared how much time it took to get a `ToList()` of the products, with and without `AsNoTracking`. 
+Wrote a quick unit test to populate the `Products` `DbSet` with items varying from 100 to 1,000,000 and compare how much time it took to get a `ToList()` of the products, with and without `AsNoTracking`. 
 
 {{< highlight csharp >}}
 var stopwatch = new Stopwatch();
@@ -94,6 +99,6 @@ stopwatch.Stop();
 var withAsNoTrackingTime = stopwatch.ElapsedMilliseconds;
 {{< /highlight >}}
 
-Without surprise, executing `ToList()` with `AsNoTracking` was 5 to 10 times faster!
+Without surprise, executing `ToList()` with `AsNoTracking` was at least 5 times faster.
 
 The source code for this example is available [here](https://github.com/iamdlm/asnotracking-performance), in case you want to play around.
