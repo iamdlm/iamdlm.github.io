@@ -57,7 +57,7 @@ In scenarios where the DbContext has a long lifespan (e.g., in a Windows service
 
 Case 2 is where I've spent most of the time debugging and after a while I've come to the conclusion that the misuse of `AsNoTracking` is a symptom of bigger problems:
 - Poorly designed architecture not following the principles it was supposed to (either DDD, CQRS, etc) 
-- SWE not trained properly on the architecture design and principles behind it
+- SWE not trained properly on the whole architecture design and principles behind it
 - Unclear or lacking documentation
 
 ## Performance Considerations
