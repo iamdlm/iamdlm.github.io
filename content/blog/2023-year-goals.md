@@ -2,7 +2,7 @@
 title: "2023 Year Goals"
 categories: [personal]
 date: 2023-03-05T15:54:16Z
-draft: false
+draft: yes
 ---
 # 2023 Year Goals
 For every company I’ve worked in my career, there were yearly goals to work towards, but I’ve never really done the same with personal goals. Well, the last couple of years have gone by, and I felt I did not accomplish much on a personal level as there was no tracked record and/or measurable improvements on key aspects of life such as health, fitness, finances, or career.

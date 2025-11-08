@@ -2,7 +2,7 @@
 title: "10-Year Anniversary"
 categories: [personal]
 date: 2024-10-27T15:30:00Z
-draft: no
+draft: yes
 ---
 # 10-Year Anniversary
 This month marks the 10-year anniversary of my career in software development—not a personal record, as I've also played soccer officially for 10 years. Unofficially, soccer still wins by a landslide; I’ve been playing since I can remember and still do every week. But programming is definitely the second-longest commitment I’ve had in my life. And I still love it.
