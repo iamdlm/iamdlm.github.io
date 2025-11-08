@@ -77,6 +77,9 @@ RETENTION_DAYS=7
 DATE=$(date +%Y%m%d_%H%M%S)
 RCLONE_REMOTE="onedrive:Backups/Postgres"
 
+# Change to a directory postgres user can access
+cd /var/backups/postgres
+
 # Daily databases
 DATABASES=("app_1" "app_2" "app_3")
 
@@ -114,6 +117,9 @@ BACKUP_DIR="/var/backups/postgres/weekly"
 RETENTION_WEEKS=4
 DATE=$(date +%Y%m%d_%H%M%S)
 RCLONE_REMOTE="onedrive:Backups/Postgres"
+
+# Change to a directory postgres user can access
+cd /var/backups/postgres
 
 # Weekly databases
 DATABASES=("app_4" "app_5" "app_6")
@@ -154,6 +160,9 @@ BACKUP_DIR="/var/backups/postgres/monthly"
 RETENTION_MONTHS=3
 DATE=$(date +%Y%m%d_%H%M%S)
 RCLONE_REMOTE="onedrive:Backups/Postgres"
+
+# Change to a directory postgres user can access
+cd /var/backups/postgres
 
 # Monthly databases
 DATABASES=("app_7" "app_8" "app_9")
